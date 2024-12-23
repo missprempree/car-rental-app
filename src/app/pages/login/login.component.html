@@ -8,15 +8,15 @@
                 <h1>Login</h1>
                 <div class="textfield">
                     <label for="user">User</label>
-                    <input type="text" name="user" placeholder="User">
+                    <input type="text" [formControl]="user" name="user" placeholder="User">
                 </div>
 
                 <div class="textfield">
                     <label for="password">Password</label>
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password"  [formControl]="password" name="password" placeholder="Password">
                 </div>
 
-                <button class="btn-login">Login</button>
+                <button class="btn-login" (click)="onLogin()">Login</button>
             </div>
         </div>
     </main>

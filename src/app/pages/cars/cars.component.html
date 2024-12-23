@@ -1,1 +1,103 @@
-<p>cars works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 text-start">
+            <h2>Car Portal</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 text-start">
+            <button class="btn btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample" >Add New</button>
+        </div>
+    </div>
+    <div class="row">
+        @for (item of carList$ |async; track $index) {
+        <div class="col-3 pt-3">
+            <div class="card">
+                <img [src]="item.carImage" height="100" />
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 text-start">
+                            <span>{{item.brand}}</span>{{item.model}}
+                        </div>
+                        <div class="col-6 text-end">
+                            <span>{{item.year}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-start">
+                            <div class="red"></div>
+                        </div>
+                        <div class="col-6 text-end">
+                            <span> $ {{item.dailyRate}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-start">
+                            <button class="btn btn-outline-danger btn-sm" (click)="onDelete(item.carId)" >Delete</button>
+                        </div>
+                        <div class="col-6 text-end">
+                            <button class="btn btn-outline-success btn-sm" (click)="onEdit(item)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                                    aria-controls="offcanvasExample" >Edit</button>
+
+                        </div>
+                    
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+        }
+    </div>
+</div>
+<!-- Section Add Form -->    
+<div class="offcanvas offcanvas-start custom-offcanvas" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Add New Car</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+    <!--{{carFormData()|json}}-->
+        <div class="row">
+            <div class="col-6 mt-2">
+                <label>Reg No</label>
+                <input type="text" [value]="carFormData().regNo" (change)="updateForm('regNo',$event)" class="form-control" placeholder="Enter Registration No" />
+            </div>
+            <div class="col-6 mt-2">
+                <label>Brand</label>
+                <input type="text" [value]="carFormData().brand" (change)="updateForm('brand',$event)"  class="form-control" placeholder="Enter Brand" />
+            </div>
+            <div class="col-6 mt-2">
+                <label>Model</label>
+                <input type="text" [value]="carFormData().model" (change)="updateForm('model',$event)"  class="form-control" placeholder="Enter Model" />
+            </div>
+            <div class="col-6 mt-2">
+                <label>Year</label>
+                <input type="text" [value]="carFormData().year" (change)="updateForm('year',$event)"  class="form-control" placeholder="Enter Year" />
+            </div>
+            <div class="col-6 mt-2">
+                <label>Color</label>
+                <input type="text" [value]="carFormData().color" (change)="updateForm('color',$event)" class="form-control" placeholder="Enter Color" />
+            </div>
+            <div class="col-6 mt-2">
+                <label>Daily Rate</label>
+                <input type="text" [value]="carFormData().dailyRate" (change)="updateForm('dailyRate',$event)" class="form-control" placeholder="Enter Daily Rate" />
+            </div>
+            <div class="col-6 mt-2">
+                <label>Car Image</label>
+                <input type="text" [value]="carFormData().carImage" (change)="updateForm('carImage',$event)" class="form-control" placeholder="Enter Image URL" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-2 text-center">
+                <button class="btn btn-secondary m-2" (click)="resetForm()" >Reset</button>
+                <button class="btn btn-primary m-2" (click)="onSave()" >Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+  
+

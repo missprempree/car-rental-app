@@ -1,0 +1,4 @@
+.custom-offcanvas {
+    width: 50%; /* Make the offcanvas take up half the screen width */
+    max-width: 50%; /* Ensure it doesn't exceed half the screen */
+}
