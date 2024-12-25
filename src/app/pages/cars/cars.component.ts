@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject, Injectable, signal } from '@angular/core';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { catchError, map, Observable, of } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cars',
@@ -27,7 +28,8 @@ export class CarsComponent {
   // Need to declare provideHttpClient() in app.config.ts because HttpClientModule and app.module.ts are deprecated 
  
   carList$: Observable<any[]> = new Observable<any[]>;
-  apiUrl: string = "api/api/CarRentalApp/";
+  
+  apiUrl: string = "api/CarRentalApp/";
 
   constructor(){
     this.carList$ = this.http.get<any[]>(`${this.apiUrl}GetCars`).pipe(
@@ -48,7 +50,6 @@ export class CarsComponent {
     return this.http.get<User>(`/api/user/${id}`);
   }*/
   updateForm(key: string, event: any) {
-    debugger;
     this.carFormData.update((data:any)=> ({...data,[key]:event.target.value}))
   }
 

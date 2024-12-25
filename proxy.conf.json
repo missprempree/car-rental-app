@@ -1,9 +1,10 @@
 {
-    "/api": {
-      "target": "https://freeapi.miniprojectideas.com",
-      "secure": false,
-      "changeOrigin": true,
-      "logLevel": "debug"
-    }
+  "/api": {
+    "comment": "--Configure Proxy for avoiding the CORS restriction--",
+    "target": "https://freeapi.miniprojectideas.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/api": "" }
   }
-  
+}

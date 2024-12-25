@@ -4,6 +4,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { Component } from '@angular/core';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CarsComponent } from './pages/cars/cars.component';
+import { CustomerComponent } from './pages/customer/customer.component';
 
 export const routes: Routes = [
     {
@@ -27,6 +28,10 @@ export const routes: Routes = [
             {
                 path: 'cars',
                 component: CarsComponent
+            },
+            {
+                path: 'customer',
+                component: CustomerComponent
             }
         ]
     }
