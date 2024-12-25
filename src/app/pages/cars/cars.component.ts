@@ -29,7 +29,7 @@ export class CarsComponent {
  
   carList$: Observable<any[]> = new Observable<any[]>;
   
-  apiUrl: string = "api/CarRentalApp/";
+  apiUrl: string = "api/api/CarRentalApp/";
 
   constructor(){
     this.carList$ = this.http.get<any[]>(`${this.apiUrl}GetCars`).pipe(
