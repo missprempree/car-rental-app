@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CarsComponent } from './pages/cars/cars.component';
 import { CustomerComponent } from './pages/customer/customer.component';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
     {
@@ -20,18 +21,19 @@ export const routes: Routes = [
     {
         path: '',
         component: LayoutComponent,
+        canActivate: [authGuard],
         children: [
             {
                 path: 'dashboard',
-                component: DashboardComponent
+                component: DashboardComponent,
             },
             {
                 path: 'cars',
-                component: CarsComponent
+                component: CarsComponent,
             },
             {
                 path: 'customer',
-                component: CustomerComponent
+                component: CustomerComponent,
             }
         ]
     }

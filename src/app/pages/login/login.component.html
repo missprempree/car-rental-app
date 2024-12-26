@@ -8,12 +8,21 @@
                 <h1>Login</h1>
                 <div class="textfield">
                     <label for="user">User</label>
-                    <input type="text" [formControl]="user" name="user" placeholder="User">
+                    <!-- Add formControl directive to the input element -->
+                    <!--<input type="text" [formControl]="user" name="user" placeholder="User">-->
+
+                    <!-- Replace the above input element with the following FormsModule -->
+                    <input type="text" [(ngModel)]="apiLoginObj.EmailId" name="user" placeholder="User">
                 </div>
 
                 <div class="textfield">
                     <label for="password">Password</label>
-                    <input type="password"  [formControl]="password" name="password" placeholder="Password">
+                    <!-- Add formControl directive to the input element -->
+                    <!--<input type="password"  [formControl]="password" name="password" placeholder="Password">-->
+                    
+                    <!-- Replace the above input element with the following FormsModule -->
+                    <input type="password"  [(ngModel)]="apiLoginObj.Password" name="password" placeholder="Password">
+               
                 </div>
 
                 <button class="btn-login" (click)="onLogin()">Login</button>

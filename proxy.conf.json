@@ -6,5 +6,13 @@
     "changeOrigin": true,
     "logLevel": "debug",
     "pathRewrite": { "^/api": "" }
+  },
+  "/userapi": {
+    "comment": "--Configure Proxy for UserApp API--",
+    "target": "https://projectapi.gerasim.in",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/userapi": "/api/UserApp" }
   }
 }
