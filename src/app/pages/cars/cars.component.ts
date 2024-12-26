@@ -126,7 +126,7 @@ export class CarsComponent {
   onDelete(id: number) {
     const isDelete = confirm("Are you sure wanting to Delete?");
     if(isDelete){
-        this.http.delete("api/api/CarRentalApp/DeleteCarbyCarId?carid="+id).subscribe((resultObj: any)=>{
+        this.http.delete(this.apiUrl + "DeleteCarbyCarId?carid=" + id).subscribe((resultObj: any)=>{
         if (resultObj.result) {
             alert("Car has been deleted successfully!")
             this.resetForm()
