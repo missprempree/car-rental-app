@@ -10,11 +10,14 @@ COPY package*.json ./
 # Install dependencies  
 RUN npm install
 
+# Set environment variable to disable Angular CLI cache  
+ENV NG_CLI_ANALYTICS=false
+
 # Copy the Angular project files  
 COPY . .  
 
-# Build the Angular application  
-RUN npm run build
+# Build the Angular application with no cache  
+RUN npm run build -- --no-cache
 
 # Expose the port that Nginx will listen on  
 EXPOSE 4200  
