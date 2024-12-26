@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cars',
-  imports: [JsonPipe,AsyncPipe],
+  imports: [AsyncPipe],
   templateUrl: './cars.component.html',
   styleUrl: './cars.component.css'
 })

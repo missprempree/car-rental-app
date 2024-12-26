@@ -1,0 +1,32 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: car-rental-app
+  labels:
+    app: car-rental-app
+spec:
+  selector:
+    app: car-rental-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: car-rental-app
+    spec:
+      containers:
+        - name: car-rental-app
+          image: image-registry.openshift-image-registry.svc:5000/missprempree-dev/car-rental-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4200
+              protocol: TCP
+  triggers:
+  - type: ConfigChange 
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - car-rental-app
+      from:
+        kind: ImageStreamTag
+        name: car-rental-app:latest
+    type: ImageChange
