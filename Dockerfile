@@ -10,9 +10,8 @@ COPY package*.json ./
 # Install dependencies  
 RUN npm install
 
-# Set environment variable to disable Angular CLI cache  
-ENV NG_CLI_ANALYTICS=false
-ENV NPM_CONFIG_CACHE=/tmp/npm-cache
+# Step 5: Create and set permissions for the Angular cache directory
+RUN mkdir -p /app/.angular/cache && chmod -R 777 /app/.angular/cache
 
 # Copy the Angular project files  
 COPY . .  
